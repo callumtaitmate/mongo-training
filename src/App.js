@@ -8,22 +8,22 @@ function App() {
   const [friends, setFriends] = useState([]);
 
   const addFriend = () => {
-    Axios.post("http://localhost:3001/addfriend", {name: name, 
+    Axios.post("https://mongo-training.herokuapp.com/addfriend", {name: name, 
   age: age}).then(() => {})
   }
 
 
   const updateFriend = (_id) => {
     const newAge = prompt("Enter new age.")
-    Axios.put("http://localhost:3001/update", { newAge: newAge, _id: _id })
+    Axios.put("???", { newAge: newAge, _id: _id })
   };
 
   const deleteFriend = (id) => {
-    Axios.delete(`http://localhost:3001/delete/${id}` )
+    Axios.delete(`https://mongo-training.herokuapp.com/delete/${id}` )
   }
 
  useEffect(() => {
-   Axios.get("http://localhost:3001/read").then((res) => {
+   Axios.get("https://mongo-training.herokuapp.com/read").then((res) => {
     setFriends(res.data)
    }).catch(() =>
    console.log("There was an error."))
